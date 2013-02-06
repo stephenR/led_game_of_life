@@ -54,8 +54,8 @@ static void set_led(int row, int col, signed char life) {
     default:
       if (life < 0) {
         led->r = led->r/2;
-        led->g = led->r/2;
-        led->b = led->r/2;
+        led->g = led->g/2;
+        led->b = led->b/2;
         break;
       }
       if (life > MAX_LIFE-5){
@@ -167,7 +167,7 @@ static void gol_handle(int row, int col){
   }
 
   if (neighbor_count < 2 || neighbor_count > 3)
-    next_state[row][col] = -state[row][col];
+    next_state[row][col] = -1 * state[row][col];
   else {
     next_state[row][col] = state[row][col]+1;
     if(next_state[row][col] > MAX_LIFE)
